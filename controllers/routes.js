@@ -14,7 +14,7 @@ router.get("/all", (req,res) =>{
         })
     }
     catch(err){
-        res.status(400).json({
+        res.status(500).json({
             message: `${err}`
         })
     }
@@ -32,7 +32,7 @@ router.get("/:id", (req,res)=> {
         })
     }
     catch (err) {
-        res.status(404).json({
+        res.status(500).json({
             message: `${err}`
         })
     }
@@ -41,13 +41,10 @@ router.get("/:id", (req,res)=> {
 
 router.post("/create", (req,res) =>{
     try{
-        if (Object.keys(req.body).length <4) throw  Error("Please fill all the requirements")
-
-        let id = req.body.post_id
-        let specificID = db.filter(comment => comment.post_id == id)
-        if (specificID.length == 1) throw Error ("To create a new post please use a new ID")
-
-        let newPost = {...req.body}
+        if (Object.keys(req.body).length <3) throw  Error("Please fill all the requirements")
+        let newPost = req.body
+        id = db.length +1
+        newPost = {id, ...req.body}
         db.push(newPost)
         saveData(dbPath, db)
         res.status(200).json({
@@ -55,7 +52,7 @@ router.post("/create", (req,res) =>{
         })
     }
     catch (err){
-        res.status(404).json({
+        res.status(500).json({
             message : `${err}`
         })
     }
@@ -77,7 +74,7 @@ router.put("/update/:id", (req,res) => {
     })
     }
     catch(err){
-        res.status(400).json({
+        res.status(500).json({
             message: `${err}`
         })
     }
@@ -95,7 +92,7 @@ router.delete("/delete/:id", (req,res) =>{
         })
     }
     catch (err){
-        res.status(400).json({
+        res.status(500).json({
             message: `${err}`
         })
     }

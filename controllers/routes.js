@@ -54,9 +54,9 @@ router.post("/create", (req,res) =>{
         if (Object.keys(req.body).length <3) throw  Error("Please fill all the requirements")
         let newPost = req.body
         // id is created by finding the length of the db array and adding 1
-        id = db.length +1
+        post_id = db.length +1
         // new post includes id first followed by rest of request
-        newPost = {id, ...req.body}
+        newPost = {post_id, ...req.body}
         // push new post to db array and overide the json file with new db
         db.push(newPost)
         saveData(dbPath, db)

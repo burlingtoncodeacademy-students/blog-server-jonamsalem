@@ -1,3 +1,16 @@
-[{
-    "yes": "working router"
-}]c
+[
+    {
+        "post_id": 1,
+        "title": "First Blog Post",
+        "author": "Paul Niemczyk",
+        "body": "These student devs keep getting younger and smarter"
+    },
+    {
+        "post_id": 2,
+        "title": "Second Blog Post",
+        "author": "Jonathan Amsalem",
+        "body": "I like coding"
+    }
+    
+    
+]

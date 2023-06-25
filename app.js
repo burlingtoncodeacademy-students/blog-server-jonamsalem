@@ -9,7 +9,7 @@ let routerControl = require("./controllers/routes")
 
 app.use(express.json())
 
-app.use("/commentss", routerControl)
+app.use("/comments", routerControl)
 
 app.listen(PORT, HOST, () =>{
     console.log(`Server listening on ${PORT} port`)

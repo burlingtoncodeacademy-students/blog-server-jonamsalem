@@ -1,0 +1,16 @@
+h1{
+   text-align: center; 
+}
+
+div{
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+    justify-content: center;
+    margin-top: 10vw ;
+}
+
+#all-comments {
+    display: flex;
+    flex-direction: row;
+}

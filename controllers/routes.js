@@ -71,7 +71,7 @@ router.post("/create", (req,res) =>{
     }
 })
 
-// update comment by id
+// update comment by id. Requires all of the items within the body.
 router.put("/update/:id", (req,res) => {
     try{
     let {id} = req.params

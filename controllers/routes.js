@@ -81,7 +81,7 @@ router.put("/update/:id", (req,res) => {
     if (!specificComment) throw Error ("cannot find comment ID")
     // get index of comment from origin db
     let specificCommentIndex = db.indexOf(specificComment)
-    // check for which content the client is updating else return the unchanged content
+    // checks for values that user put in body and changes any that changed from original message.
     db[specificCommentIndex].title = req.body.title ?? db[specificComment].title
     db[specificCommentIndex].author = req.body.author ?? db[specificComment].author
     db[specificCommentIndex].body = req.body.body ?? db[specificComment].body
